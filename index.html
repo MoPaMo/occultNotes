@@ -5,19 +5,43 @@
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'"
+      content="default-src 'self'; script-src 'self' 'unsafe-eval'"
     />
     <title>occultNotes</title>
     <link rel="stylesheet" href="./tw.css" />
+    <link rel="stylesheet" href="./quill.snow.css" />
   </head>
   <body class="">
-    <div class="p-4 flex flex-col h-screen">
+    <div class="p-4 flex flex-col h-screen" id="app">
       <header class="p-4 border-1 border-indigo-100 border-2 rounded-t-lg">
         <h1 class="text-lg font-bold">occultNotes</h1>
       </header>
       <main
         class="flex-grow p-4 border-1 border-indigo-100 border-r-2 border-l-2"
-      ></main>
+      >
+        <div id="toolbar">
+          <!-- Add font size dropdown -->
+          <select class="ql-size">
+            <option value="small"></option>
+            <!-- Note a missing, thus falsy value, is used to reset to default -->
+            <option selected></option>
+            <option value="large"></option>
+            <option value="huge"></option>
+          </select>
+          <!-- Add a bold button -->
+          <button class="ql-bold"></button>
+          <button class="ql-italic"></button>
+          <button class="ql-underline"></button>
+          <!-- Add subscript and superscript buttons -->
+          <button class="ql-script" value="sub"></button>
+          <button class="ql-script" value="super"></button>
+        </div>
+        <div id="editor">
+          <p>Hello World!</p>
+          <p>Some initial <strong>bold</strong> text</p>
+          <p><br /></p>
+        </div>
+      </main>
       <footer
         class="p-4 border-1 border-indigo-100 border-2 rounded-b-lg text-sm"
       >
@@ -28,7 +52,7 @@
     </div>
 
     <!-- You can also require other files to run in this process -->
-    <script src="./node_modules/vue/vue.global.js" charset="utf-8"></script>
+    <script src="./quill.min.js" charset="utf-8"></script>
     <script src="./renderer.js"></script>
   </body>
 </html>

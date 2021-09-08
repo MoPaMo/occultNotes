@@ -4,3 +4,10 @@
 // `nodeIntegration` is turned off. Use `preload.js` to
 // selectively enable features needed in the rendering
 // process.
+var quill = new Quill('#editor', {
+  theme: 'snow',
+  readOnly:false,
+  modules: {
+    toolbar: '#toolbar'
+  },
+});
