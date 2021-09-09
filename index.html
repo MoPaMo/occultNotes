@@ -8,41 +8,49 @@
       content="default-src 'self'; script-src 'self' 'unsafe-eval'"
     />
     <title>occultNotes</title>
-    <link rel="stylesheet" href="./tw.css" />
+
     <link rel="stylesheet" href="./quill.snow.css" />
+    <link rel="stylesheet" href="./tw.css" />
   </head>
   <body class="">
     <div class="p-4 flex flex-col h-screen" id="app">
       <header class="p-4 border-1 border-indigo-100 border-2 rounded-t-lg">
         <h1 class="text-lg font-bold">occultNotes</h1>
       </header>
-
+      <div
+        class="flex-grow p-4 border-1 border-indigo-100 border-2 border-t-0 text-xl font-bold"
+      >Log In Failed</div>
       <div
         class="flex-grow p-4 border-1 border-indigo-100 border-r-2 border-l-2 grid grid-cols-4"
       >
-        <sidebar class="col-span-1"></sidebar>
+        <sidebar class="col-span-1 flex flex-col h-full  mr-2 p-1 rounded-sm bg-indigo-50">
+          <section class="bg-indigo-100 p-2 rounded-sm cursor-pointer">Note 1</section>
+          <section class="bg-indigo-200 p-2 rounded-sm cursor-pointer">
+            Note 2
+          </section>
+        </sidebar>
         <main class="col-span-3">
-          <div id="toolbar">
-            <!-- Add font size dropdown -->
-            <select class="ql-size">
-              <option value="small"></option>
-              <!-- Note a missing, thus falsy value, is used to reset to default -->
-              <option selected></option>
-              <option value="large"></option>
-              <option value="huge"></option>
-            </select>
-            <!-- Add a bold button -->
-            <button class="ql-bold"></button>
-            <button class="ql-italic"></button>
-            <button class="ql-underline"></button>
-            <!-- Add subscript and superscript buttons -->
-            <button class="ql-script" value="sub"></button>
-            <button class="ql-script" value="super"></button>
-          </div>
-          <div id="editor">
-            <p>Hello World!</p>
-            <p>Some initial <strong>bold</strong> text</p>
-            <p><br /></p>
+          <div>
+            <div id="toolbar">
+              <!-- Add font size dropdown -->
+              <select class="ql-size">
+                <option value="small"></option>
+                <!-- Note a missing, thus falsy value, is used to reset to default -->
+                <option selected></option>
+                <option value="large"></option>
+                <option value="huge"></option>
+              </select>
+              <!-- Add a bold button -->
+              <button class="ql-bold"></button>
+              <button class="ql-italic"></button>
+              <button class="ql-underline"></button>
+              <!-- Add subscript and superscript buttons -->
+              <button class="ql-script" value="sub"></button>
+              <button class="ql-script" value="super"></button>
+            </div>
+            <div id="editor">
+              <p>Loading...</p>
+            </div>
           </div>
         </main>
       </div>
