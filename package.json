@@ -20,6 +20,5 @@
     "electron": "^13.1.9"
   },
   "dependencies": {
-    "vue": "^3.2.10"
   }
 }
