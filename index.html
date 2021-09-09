@@ -16,32 +16,36 @@
       <header class="p-4 border-1 border-indigo-100 border-2 rounded-t-lg">
         <h1 class="text-lg font-bold">occultNotes</h1>
       </header>
-      <main
-        class="flex-grow p-4 border-1 border-indigo-100 border-r-2 border-l-2"
+
+      <div
+        class="flex-grow p-4 border-1 border-indigo-100 border-r-2 border-l-2 grid grid-cols-4"
       >
-        <div id="toolbar">
-          <!-- Add font size dropdown -->
-          <select class="ql-size">
-            <option value="small"></option>
-            <!-- Note a missing, thus falsy value, is used to reset to default -->
-            <option selected></option>
-            <option value="large"></option>
-            <option value="huge"></option>
-          </select>
-          <!-- Add a bold button -->
-          <button class="ql-bold"></button>
-          <button class="ql-italic"></button>
-          <button class="ql-underline"></button>
-          <!-- Add subscript and superscript buttons -->
-          <button class="ql-script" value="sub"></button>
-          <button class="ql-script" value="super"></button>
-        </div>
-        <div id="editor">
-          <p>Hello World!</p>
-          <p>Some initial <strong>bold</strong> text</p>
-          <p><br /></p>
-        </div>
-      </main>
+        <sidebar class="col-span-1"></sidebar>
+        <main class="col-span-3">
+          <div id="toolbar">
+            <!-- Add font size dropdown -->
+            <select class="ql-size">
+              <option value="small"></option>
+              <!-- Note a missing, thus falsy value, is used to reset to default -->
+              <option selected></option>
+              <option value="large"></option>
+              <option value="huge"></option>
+            </select>
+            <!-- Add a bold button -->
+            <button class="ql-bold"></button>
+            <button class="ql-italic"></button>
+            <button class="ql-underline"></button>
+            <!-- Add subscript and superscript buttons -->
+            <button class="ql-script" value="sub"></button>
+            <button class="ql-script" value="super"></button>
+          </div>
+          <div id="editor">
+            <p>Hello World!</p>
+            <p>Some initial <strong>bold</strong> text</p>
+            <p><br /></p>
+          </div>
+        </main>
+      </div>
       <footer
         class="p-4 border-1 border-indigo-100 border-2 rounded-b-lg text-sm"
       >
