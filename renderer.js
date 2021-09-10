@@ -17,3 +17,8 @@ var quill = new Quill('#editor', {
     toolbar: '#toolbar'
   },
 });
+let pwd=""
+let signedin=false;
+while (!signedin){
+  window.alert("Enter password")
+}
