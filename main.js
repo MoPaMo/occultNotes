@@ -92,6 +92,9 @@ const template = [
             },
           ]
         : [{ role: "delete" }, { type: "separator" }, { role: "selectAll" }]),
+      { type: "separator" },
+      { label: "Save",
+    accelerator: process.platform === 'darwin' ? 'Alt+Cmd+I' : 'Strg+S', },
     ],
   },
   // { role: 'viewMenu' }
@@ -100,7 +103,6 @@ const template = [
     submenu: [
       { role: "reload" },
       { role: "forceReload" },
-      { role: "toggleDevTools" },
       { type: "separator" },
       { role: "resetZoom" },
       { role: "zoomIn" },
