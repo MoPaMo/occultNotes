@@ -141,6 +141,7 @@ Forms
 */
 
 button,
+input,
 select {
   font-family: inherit;
   /* 1 */
@@ -167,7 +168,9 @@ select {
 Correct the inability to style clickable types in iOS and Safari.
 */
 
-button {
+button,
+[type='button'],
+[type='reset'] {
   -webkit-appearance: button;
 }
 
@@ -231,6 +234,7 @@ Add the correct display in Chrome and Safari.
 
 
 h1,
+h2,
 p {
   margin: 0;
 }
@@ -321,6 +325,21 @@ body {
  * https://github.com/tailwindcss/tailwindcss/issues/362
  */
 
+input::-moz-placeholder {
+  opacity: 1;
+  color: #a3a3a3;
+}
+
+input:-ms-input-placeholder {
+  opacity: 1;
+  color: #a3a3a3;
+}
+
+input::placeholder {
+  opacity: 1;
+  color: #a3a3a3;
+}
+
 button {
   cursor: pointer;
 }
@@ -333,7 +352,8 @@ button {
  * outline in Firefox by default.
  */
 
-h1 {
+h1,
+h2 {
   font-size: inherit;
   font-weight: inherit;
 }
@@ -357,6 +377,7 @@ a {
  */
 
 button,
+input,
 select {
   padding: 0;
   line-height: inherit;
@@ -403,12 +424,27 @@ select {
   border-color: rgba(229, 229, 229, var(--tw-border-opacity));
 }
 
+.absolute {
+  position: absolute;
+}
+
+.inset-0 {
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+}
+
 .col-span-1 {
   grid-column: span 1 / span 1;
 }
 
 .col-span-3 {
   grid-column: span 3 / span 3;
+}
+
+.mt-3 {
+  margin-top: 0.75rem;
 }
 
 .mr-2 {
@@ -429,6 +465,10 @@ select {
 
 .h-screen {
   height: 100vh;
+}
+
+.w-full {
+  width: 100%;
 }
 
 .flex-grow {
@@ -486,8 +526,16 @@ select {
   flex-direction: column;
 }
 
+.items-center {
+  align-items: center;
+}
+
 .rounded-sm {
   border-radius: 0.125rem;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
 }
 
 .rounded-t-lg {
@@ -504,8 +552,8 @@ select {
   border-width: 2px;
 }
 
-.border-t-0 {
-  border-top-width: 0px;
+.border {
+  border-width: 1px;
 }
 
 .border-r-2 {
@@ -536,6 +584,16 @@ select {
   background-color: rgba(199, 210, 254, var(--tw-bg-opacity));
 }
 
+.bg-indigo-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgba(129, 140, 248, var(--tw-bg-opacity));
+}
+
+.object-center {
+  -o-object-position: center;
+     object-position: center;
+}
+
 .p-1 {
   padding: 0.25rem;
 }
@@ -548,6 +606,14 @@ select {
   padding: 1rem;
 }
 
+.text-center {
+  text-align: center;
+}
+
+.align-middle {
+  vertical-align: middle;
+}
+
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -558,9 +624,13 @@ select {
   line-height: 1.75rem;
 }
 
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.font-semibold {
+  font-weight: 600;
 }
 
 .font-bold {
