@@ -25,6 +25,9 @@ const debounce = (func, wait, immediate) => {
     if (callNow) func.apply(context, args);
   };
 };
+const storeData = () => {
+  localStorage.encdata=encrypt(JSON.stringify(quill.getContents()), pwd);
+};
 if (!localStorage.hashpwd) {
   localStorage.hashpwd = CryptoJS.SHA256("note");
 }
@@ -39,6 +42,7 @@ var quill = new Quill("#editor", {
     toolbar: "#toolbar",
   },
 });
+quill.on("text-change", debounce(storeData, 500, false));
 let data = "";
 const checkPwd = () => {
   if (pwdInput.value.length) {
@@ -46,6 +50,9 @@ const checkPwd = () => {
     let tryHash = CryptoJS.SHA256(pwdInput.value);
     if (tryHash == hash) {
       pwdScreen.classList.add("hidden");
+      signedin=true;
+      pwd=pwdInput.value;
+      quill.setContents(JSON.parse(decrypt(localStorage.encdata, pwd)))
     }
   }
 };
