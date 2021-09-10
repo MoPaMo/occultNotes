@@ -4,15 +4,19 @@
 // `nodeIntegration` is turned off. Use `preload.js` to
 // selectively enable features needed in the rendering
 // process.
-if (!localStorage.hashpwd) {
-  localStorage.hashpwd = CryptoJS.SHA256("note");
-}
 const decrypt = (text, pwd) => {
   return CryptoJS.AES.decrypt(text, pwd).toString(CryptoJS.enc.Utf8);
 };
 const encrypt = (text, pwd) => {
   return CryptoJS.AES.encrypt(text, pwd).toString();
 };
+if (!localStorage.hashpwd) {
+  localStorage.hashpwd = CryptoJS.SHA256("note");
+}
+if (!localStorage.encdata) {
+  localStorage.encdata = encrypt("", "note");
+}
+
 var quill = new Quill("#editor", {
   theme: "snow",
   readOnly: false,
@@ -20,6 +24,7 @@ var quill = new Quill("#editor", {
     toolbar: "#toolbar",
   },
 });
+let data = "";
 const checkPwd = () => {
   if (pwdInput.value.length) {
     let hash = localStorage.hashpwd;
