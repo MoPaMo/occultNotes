@@ -30,6 +30,7 @@ const storeData = () => {
 };
 if (!localStorage.hashpwd) {
   localStorage.hashpwd = CryptoJS.SHA256("note");
+  pwd="note"
 }
 if (!localStorage.encdata) {
   localStorage.encdata = encrypt("", "note");
@@ -44,6 +45,8 @@ var quill = new Quill("#editor", {
 });
 quill.on("text-change", debounce(storeData, 500, false));
 let data = "";
+let signedin = false;
+
 const checkPwd = () => {
   if (pwdInput.value.length) {
     let hash = localStorage.hashpwd;
@@ -56,21 +59,21 @@ const checkPwd = () => {
     }
   }
 };
-const newPwd = () => {
+function newPwd() {
   if (signedin) {
+    console.log("newpwd");
     let p = document.getElementById("newIn").value;
     if (p.length) {
       pwd = p;
       localStorage.hashpwd = CryptoJS.SHA256(pwd);
-      localStorage.encdata = decrypt(JSON.stringify(quill.getContents()), pwd);
+      localStorage.encdata = encrypt(JSON.stringify(quill.getContents()), pwd);
       alert("Successfully changed password. New password:" + p);
     } else {
       alert("Password can't be whitespace");
     }
   }
-};
+}
 let pwd = "";
-let signedin = false;
 let pwdInput = document.getElementById("pwd");
 let pwdScreen = document.getElementById("login");
 pwdInput.addEventListener("keyup", (e) => {
@@ -81,6 +84,7 @@ pwdInput.addEventListener("keyup", (e) => {
 document.getElementById("loginBtn").addEventListener("click", (e) => {
   checkPwd();
 });
+document.getElementById("newBtn").addEventListener("click", ()=>{console.log("hi");newPwd()});
 window
   .matchMedia("(prefers-color-scheme: dark)")
   .addEventListener("change", (event) => {
@@ -90,5 +94,3 @@ window
       document.body.classList.remove("dark");
     }
   });
-
-document.getElementById("newBtn").addEventListener("click", newPwd());
