@@ -222,6 +222,10 @@ Interactive
 Add the correct display in Chrome and Safari.
 */
 
+summary {
+  display: list-item;
+}
+
 /**
  * Manually forked from SUIT CSS Base: https://github.com/suitcss/base
  * A thin layer on top of normalize.css that provides a starting point more
@@ -455,6 +459,10 @@ select {
   margin-right: 0.5rem;
 }
 
+.mr-4 {
+  margin-right: 1rem;
+}
+
 .flex {
   display: flex;
 }
@@ -568,6 +576,10 @@ select {
   border-right-width: 2px;
 }
 
+.border-b-0 {
+  border-bottom-width: 0px;
+}
+
 .border-l-2 {
   border-left-width: 2px;
 }
@@ -575,6 +587,16 @@ select {
 .border-indigo-100 {
   --tw-border-opacity: 1;
   border-color: rgba(224, 231, 255, var(--tw-border-opacity));
+}
+
+.bg-gray-800 {
+  --tw-bg-opacity: 1;
+  background-color: rgba(38, 38, 38, var(--tw-bg-opacity));
+}
+
+.bg-gray-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgba(23, 23, 23, var(--tw-bg-opacity));
 }
 
 .bg-indigo-50 {
@@ -595,6 +617,16 @@ select {
 .bg-indigo-400 {
   --tw-bg-opacity: 1;
   background-color: rgba(129, 140, 248, var(--tw-bg-opacity));
+}
+
+.bg-yellow-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgba(253, 230, 138, var(--tw-bg-opacity));
+}
+
+.bg-yellow-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgba(120, 53, 15, var(--tw-bg-opacity));
 }
 
 .object-center {
@@ -643,6 +675,11 @@ select {
 
 .font-bold {
   font-weight: 700;
+}
+
+.text-indigo-50 {
+  --tw-text-opacity: 1;
+  color: rgba(238, 242, 255, var(--tw-text-opacity));
 }
 
 *, ::before, ::after {
