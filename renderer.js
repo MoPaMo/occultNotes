@@ -56,6 +56,18 @@ const checkPwd = () => {
     }
   }
 };
+const newPwd = () => {
+  if (signedin) {
+    let p = document.getElementById("newIn").value;
+    if (p.length) {
+      pwd = p;
+      localStorage.hashpwd = CryptoJS.SHA256(pwd);
+      localStorage.encdata = decrypt(JSON.stringify(quill.getContents()), pwd);
+      alert("Successfully changed password. New password:" + p);
+    } else {alert("Password can't be whitespace")
+    }
+  }
+};
 let pwd = "";
 let signedin = false;
 let pwdInput = document.getElementById("pwd");
