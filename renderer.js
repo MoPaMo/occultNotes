@@ -65,9 +65,9 @@ pwdInput.addEventListener("keyup", (e) => {
     checkPwd();
   }
 });
-document.getElementById('loginBtn').addEventListener("click", (e)=>{
+document.getElementById("loginBtn").addEventListener("click", (e) => {
   checkPwd();
-})
+});
 window
   .matchMedia("(prefers-color-scheme: dark)")
   .addEventListener("change", (event) => {
