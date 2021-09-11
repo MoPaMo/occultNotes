@@ -64,7 +64,8 @@ const newPwd = () => {
       localStorage.hashpwd = CryptoJS.SHA256(pwd);
       localStorage.encdata = decrypt(JSON.stringify(quill.getContents()), pwd);
       alert("Successfully changed password. New password:" + p);
-    } else {alert("Password can't be whitespace")
+    } else {
+      alert("Password can't be whitespace");
     }
   }
 };
@@ -89,3 +90,5 @@ window
       document.body.classList.remove("dark");
     }
   });
+
+document.getElementById("newBtn").addEventListener("click", newPwd());
