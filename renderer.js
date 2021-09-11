@@ -65,3 +65,13 @@ pwdInput.addEventListener("keyup", (e) => {
     checkPwd();
   }
 });
+
+
+window.matchMedia('(prefers-color-scheme: dark)')
+      .addEventListener('change', event => {
+  if (event.matches) {
+    document.body.classList.add("dark")
+  } else {
+    document.body.classList.remove("dark")
+  }
+})
