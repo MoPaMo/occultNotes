@@ -26,7 +26,7 @@ const debounce = (func, wait, immediate) => {
   };
 };
 const storeData = () => {
-  localStorage.encdata=encrypt(JSON.stringify(quill.getContents()), pwd);
+  localStorage.encdata = encrypt(JSON.stringify(quill.getContents()), pwd);
 };
 if (!localStorage.hashpwd) {
   localStorage.hashpwd = CryptoJS.SHA256("note");
@@ -50,9 +50,9 @@ const checkPwd = () => {
     let tryHash = CryptoJS.SHA256(pwdInput.value);
     if (tryHash == hash) {
       pwdScreen.classList.add("hidden");
-      signedin=true;
-      pwd=pwdInput.value;
-      quill.setContents(JSON.parse(decrypt(localStorage.encdata, pwd)))
+      signedin = true;
+      pwd = pwdInput.value;
+      quill.setContents(JSON.parse(decrypt(localStorage.encdata, pwd)));
     }
   }
 };
@@ -66,12 +66,12 @@ pwdInput.addEventListener("keyup", (e) => {
   }
 });
 
-
-window.matchMedia('(prefers-color-scheme: dark)')
-      .addEventListener('change', event => {
-  if (event.matches) {
-    document.body.classList.add("dark")
-  } else {
-    document.body.classList.remove("dark")
-  }
-})
+window
+  .matchMedia("(prefers-color-scheme: dark)")
+  .addEventListener("change", (event) => {
+    if (event.matches) {
+      document.body.classList.add("dark");
+    } else {
+      document.body.classList.remove("dark");
+    }
+  });
