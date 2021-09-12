@@ -1,12 +1,25 @@
 // Modules to control application life and create native browser window
-const { app, BrowserWindow, Menu, MenuItem, ipcMain } = require("electron");
+const {
+  app,
+  BrowserWindow,
+  Menu,
+  MenuItem,
+  ipcMain,
+  nativeImage,
+} = require("electron");
 const path = require("path");
+var image = nativeImage.createFromPath(
+  path.join(__dirname, "occultNotesNote.png")
+);
+// where public folder on the root dir
 
+image.setTemplateImage(true);
 function createWindow() {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
+    icon: image,
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
     },
